@@ -1,1 +1,1 @@
-# GIF
+# GIF Hunt
