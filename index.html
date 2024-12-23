@@ -11,13 +11,13 @@
       crossorigin="anonymous"
     />
     <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            background-color: black;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: black;
+      }
       .container {
         border: 2px solid black;
         width: 600px;
@@ -44,23 +44,37 @@
   </head>
   <body>
     <div class="container">
-      <div class="gifDisplay"></div>
+      <img src="Assets/Welcome Img.png" class="gifDisplay" />
       <input class="inputbox" type="text" value="" />
       <button class="btn btn-primary" type="button">Search</button>
     </div>
     <script>
-      fetch(
-        "https://api.giphy.com/v1/gifs/translate?api_key=MpcZ0e821BwuVKCDAabcDKSUKeamqfaT&s=lion"
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((gif) => {
-          console.log(gif);
-        })
-        .catch((error) => {
-          console.log("ERROR:", error);
-        });
+      let gifDisplay = document.querySelector(".gifDisplay");
+      let inputbox = document.querySelector(".inputbox");
+      let btn = document.querySelector(".btn");
+      function fetchGIF(searchedWord) {
+        let apiKey = `https://api.giphy.com/v1/gifs/translate?api_key=MpcZ0e821BwuVKCDAabcDKSUKeamqfaT&s=${searchedWord}`;
+        fetch(apiKey)
+          .then((response) => {
+            return response.json();
+          })
+          .then((gif) => {
+            gifDisplay.src = gif.data.images.original.url;
+          })
+          .catch((error) => {
+            gifDisplay.src = "Assets/Warning.webp";
+          });
+      }
+
+      btn.addEventListener("click", () => {
+        let searchedWord = inputbox.value;
+        if (searchedWord) {
+          fetchGIF(searchedWord);
+          fetch;
+        } else {
+          gifDisplay.src = "Assets/Warning.webp";
+        }
+      });
     </script>
   </body>
 </html>
