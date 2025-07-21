@@ -35,5 +35,5 @@ cd GIF-Hunt
 Use Live Server or double-click the file
 
 🔐 API Used
-GIPHY Search & Trending API
+GIPHY Search & Trending API </br>
 https://developers.giphy.com
