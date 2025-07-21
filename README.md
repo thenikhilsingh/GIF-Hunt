@@ -33,3 +33,7 @@ cd GIF-Hunt
 
 4. Open index.html in your browser </br>
 Use Live Server or double-click the file
+
+🔐 API Used
+GIPHY Search & Trending API
+https://developers.giphy.com
